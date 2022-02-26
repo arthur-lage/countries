@@ -5,11 +5,14 @@ import { Header } from "../../components/Header";
 import { Country } from "../../components/Country";
 
 import ReactLoading from "react-loading";
-import { Main } from "./styles";
+import { Main, CountryList } from "./styles";
+import { useTheme } from "styled-components";
 
 export function Home() {
   const [countries, setCountries] = useState<any>([]);
   const [loading, setLoading] = useState(false);
+
+  const theme = useTheme()
 
   useEffect(() => {
     async function fetchData() {
@@ -32,15 +35,21 @@ export function Home() {
           <div className="loading">
             <h2>Loading data</h2>
             <br />
-            <ReactLoading type="bubbles" color="#222" width={80} />
+            <ReactLoading
+              type="bubbles"
+              // @ts-ignore
+              color={theme?.body === "#fff" ? "#222" : "#fff"}
+              className="loadingIcon"
+              width={80}
+            />
           </div>
         ) : (
-          <>
+          <CountryList>
             {/* @ts-ignore */}
             {countries.map((country, key) => (
               <Country props={country} key={key} />
             ))}
-          </>
+          </CountryList>
         )}
       </Main>
     </div>

@@ -11,12 +11,12 @@ export const Container = styled(Link)`
   height: 40rem;
   cursor: pointer;
   text-decoration: none;
-  background: #fff;
+  background: ${props => props.theme.countryBackground};
   border-radius: 8px;
   transition: 0.2s ease;
 
   &:hover {
-    background: rgb(233, 233, 233);
+    filter: brightness(.9);
   }
 
   .image {
@@ -31,14 +31,14 @@ export const Container = styled(Link)`
     flex-direction: column;
     font-size: 1.8rem;
     padding: 1rem;
-    color: #222;
+    color: ${props => props.theme.text};
     font-family: "Montserrat", sans-serif;
   }
-
+  
   .name {
     font-weight: 500;
     font-size: 2.4rem;
-    color: #222;
+    color: ${props => props.theme.text};
     margin-bottom: 2rem;
     font-family: "Montserrat", sans-serif;
   }
