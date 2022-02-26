@@ -6,8 +6,11 @@ export const Container = styled.header`
   justify-content: space-between;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
   width: 100vw;
+  position: fixed;
+  top: 0;
+  z-index: 10;
   padding: 3rem 8rem;
-  background: #fff;
+  background: ${props => props.theme.header};
   transition: 0.2s ease;
 
   .title {
@@ -19,12 +22,8 @@ export const Container = styled.header`
   }
 
   .title a {
-    color: #222;
+    color: ${props => props.theme.text};
     text-decoration: none;
-  }
-
-  body.dark .title a {
-    color: #fff;
   }
 
   .themeWrapper {
@@ -38,11 +37,7 @@ export const Container = styled.header`
     cursor: pointer;
     position: relative;
     transition: 0.2s ease;
-    background: #ffffff;
-  }
-
-  .themeWrapper.dark {
-    background: #1f0d38;
+    background: ${props => props.theme.themeWrapper};
   }
 
   .themeToggler {

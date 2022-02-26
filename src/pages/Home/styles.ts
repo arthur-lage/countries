@@ -6,8 +6,11 @@ export const Main = styled.div`
   justify-content: center;
   gap: 2rem;
   flex-wrap: wrap;
+  background: ${(props) => props.theme.body};
+  height: 100vh;
   width: 100vw;
   padding: 4rem 8rem;
+  margin-top: 10rem;
 
   .loading {
     display: flex;

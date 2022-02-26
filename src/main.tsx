@@ -5,15 +5,16 @@ import App from "./App";
 import { GlobalStyles } from "./styles/global";
 
 import { BrowserRouter } from "react-router-dom";
-import { Theme } from "./styles/theme";
+
+import { CustomThemeProvider } from "./contexts/CustomThemeContext";
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <GlobalStyles />
-      <Theme>
+      <CustomThemeProvider>
+        <GlobalStyles />
         <App />
-      </Theme>
+      </CustomThemeProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

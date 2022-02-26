@@ -1,13 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { Container } from "./styles";
 import { FaMoon, FaSun } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { ThemeContext } from "../../contexts/CustomThemeContext";
 
 export function Header() {
-  const [isThemeDark, setIsThemeDark] = useState(false);
+  const { theme, handleSetTheme } = useContext(ThemeContext)
 
   function handleTheme() {
-    setIsThemeDark((prev) => !prev);
+    if (theme === "light") {
+      handleSetTheme("dark");
+    } else {
+      handleSetTheme("light");
+    }
   }
 
   return (
@@ -16,9 +21,12 @@ export function Header() {
         <Link to="/">Countries</Link>
       </h1>
 
-      <div onClick={handleTheme} className={`themeWrapper`}>
-        <div className={`themeToggler`}>
-          {isThemeDark ? (
+      <div
+        onClick={handleTheme}
+        className={`themeWrapper`}
+      >
+        <div className={`themeToggler ${theme === "dark" ? "dark" : ""}`}>
+          {theme === "dark" ? (
             <FaMoon color="#fff" size={24} />
           ) : (
             <FaSun color="#222" size={24} />

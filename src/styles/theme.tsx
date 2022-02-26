@@ -1,18 +1,13 @@
-import React from "react";
-import { ThemeProvider } from "styled-components";
-
-const theme = {
-  colors: {
-    white: "#fff",
-  },
+export const lightTheme = {
+  body: "#fff",
+  header: "#fff",
+  text: "#222", 
+  themeWrapper: "#fff"
 };
 
-type Props = {
-  children: React.ReactNode;
+export const darkTheme = {
+  body: "#1E1D42",
+  header: "#32305f",
+  text: "#fff",
+  themeWrapper: "#444097"
 };
-
-const Theme = ({ children }: Props) => (
-  <ThemeProvider theme={theme}>{children}</ThemeProvider>
-);
-
-export { Theme };
